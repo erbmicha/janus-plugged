@@ -1,3 +1,8 @@
+let mapleader = "\<Space>"
+
+filetype plugin on
+syntax on
+
 let s:path = expand('<sfile>:p:h')
 
 " Load vim-enabled plugins from plugins.vim file
@@ -7,11 +12,11 @@ call plug#end()
 
 " Core Functions and Framework
 exe 'source ' . s:path . '/custom/plugged.vim'
-exe 'source ' . s:path . '/custom/janus.vim'
 
 " Core customizations
 exe 'source ' . s:path . '/custom/defaults.vim'
 exe 'source ' . s:path . '/custom/mappings.vim'
+exe 'source ' . s:path . '/custom/strip-whitespaces.vim'
 
 " Airline
 let g:airline_powerline_fonts = 1
@@ -26,7 +31,7 @@ let g:sudo_no_gui=1
 
 " Theme activation
 "let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-colorscheme gruvbox
+colorscheme Tomorrow-Night
 set background=dark
 
 " Autocomplete
@@ -46,9 +51,8 @@ endif
 " ~/.config/nvim/custom/plugins
 "
 
+exe 'source ' . s:path . '/custom/plugins/fugitive.vim'
+exe 'source ' . s:path . '/custom/plugins/fzf.vim'
 exe 'source ' . s:path . '/custom/plugins/nerdtree.vim'
 exe 'source ' . s:path . '/custom/plugins/nerdcommenter.vim'
-exe 'source ' . s:path . '/custom/plugins/fugitive.vim'
 exe 'source ' . s:path . '/custom/plugins/syntastic.vim'
-exe 'source ' . s:path . '/custom/strip-whitespaces.vim'
-

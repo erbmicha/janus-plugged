@@ -1,4 +1,4 @@
-if janus#is_plugin_enabled("nerdtree")
+if exists(":NERDTreeToggle")
   " close vim if NERDtree is the last buffer
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
@@ -7,7 +7,7 @@ if janus#is_plugin_enabled("nerdtree")
   let NERDTreeIgnore=['\.pyc$', '\.pyo$', '\.rbc$', '\.rbo$', '\.class$', '\.o$', '\~$']
 
   " Default mapping, <leader>n
-  call janus#add_mapping('nerdtree', 'map', '<leader>n', ':NERDTreeToggle<CR>:NERDTreeMirror<CR>')
+  map <leader>n :NERDTreeToggle<CR>:NERDTreeMirror<CR>
 
   augroup AuNERDTreeCmd
   autocmd AuNERDTreeCmd VimEnter * call s:CdIfDirectory(expand("<amatch>"))
